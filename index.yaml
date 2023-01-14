@@ -3,6 +3,21 @@ entries:
   focalboard:
   - apiVersion: v2
     appVersion: 0.6.7
+    created: "2023-01-14T04:49:36.26757946Z"
+    description: Focalboard Server
+    digest: e69ee33fb23cae4af4f8b6f790706cbeb19b2c95c5364d355c5b55608bc76735
+    keywords:
+    - focalboard
+    - mattermost
+    maintainers:
+    - name: stafot
+    name: focalboard
+    type: application
+    urls:
+    - https://github.com/mattermost/mattermost-helm/releases/download/focalboard-0.5.0/focalboard-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
+    appVersion: 0.6.7
     created: "2021-06-03T11:52:28.551273857Z"
     description: Focalboard Server
     digest: 3950aafe7760cd6a825bc61f53d8c249fbc33bec6d0c01fb2fb7f80dfc99a808
@@ -17,6 +32,15 @@ entries:
     - https://github.com/mattermost/mattermost-helm/releases/download/focalboard-0.4.0/focalboard-0.4.0.tgz
     version: 0.4.0
   mattermost-chaos-engine:
+  - apiVersion: v2
+    created: "2023-01-14T04:49:36.460422212Z"
+    description: A Helm chart for Kubernetes and Mattermost Application Chaos Engine
+    digest: 70665c32817d9dc60f5bde9356c4dfd06c4250d878bcd9fa0d0626471c14cc1d
+    name: mattermost-chaos-engine
+    type: application
+    urls:
+    - https://github.com/mattermost/mattermost-helm/releases/download/mattermost-chaos-engine-0.2.0/mattermost-chaos-engine-0.2.0.tgz
+    version: 0.2.0
   - apiVersion: v2
     created: "2021-10-08T11:00:25.801222289Z"
     description: A Helm chart for Kubernetes and Mattermost Application Chaos Engine
@@ -37,6 +61,52 @@ entries:
     - https://github.com/mattermost/mattermost-helm/releases/download/mattermost-chaos-engine-0.1.0/mattermost-chaos-engine-0.1.0.tgz
     version: 0.1.0
   mattermost-enterprise-edition:
+  - apiVersion: v2
+    appVersion: 7.5.2
+    created: "2023-01-14T04:49:36.650154961Z"
+    dependencies:
+    - name: mattermost-elasticsearch
+      repository: ""
+      version: 0.1.0
+    - name: mattermost-grafana
+      repository: ""
+      version: 0.3.6
+    - condition: global.features.database.useInternal
+      name: mysqlha
+      repository: https://charts.helm.sh/incubator
+      version: 2.0.0
+    - condition: minio.enabled
+      name: minio
+      repository: https://charts.helm.sh/stable
+      version: 5.0.26
+    - condition: global.features.grafana.enabled
+      name: prometheus
+      repository: https://charts.helm.sh/stable
+      version: 11.4.0
+    description: Mattermost Enterprise server with high availitibity.
+    digest: 44545d52b893c9dd21a86cca01eaaaa1511270d39e4e6dc60f91430aa44bfc87
+    home: https://mattermost.com
+    icon: http://www.mattermost.org/wp-content/uploads/2016/04/icon.png
+    keywords:
+    - mattermost
+    - communication
+    - messaging
+    - team colaboration
+    maintainers:
+    - email: joram@mattermost.com
+      name: jwilander
+    - email: stylianos@mattermost.com
+      name: stylianosrigas
+    - email: spiros.economakis@mattermost.com
+      name: spirosoik
+    name: mattermost-enterprise-edition
+    sources:
+    - https://github.com/mattermost/mattermost-server
+    - https://github.com/mattermost/mattermost-helm
+    type: application
+    urls:
+    - https://github.com/mattermost/mattermost-helm/releases/download/mattermost-enterprise-edition-2.6.16/mattermost-enterprise-edition-2.6.16.tgz
+    version: 2.6.16
   - apiVersion: v2
     appVersion: 6.4.0
     created: "2022-02-22T09:23:40.850407776Z"
@@ -1853,6 +1923,21 @@ entries:
     version: 0.8.2
   mattermost-operator:
   - apiVersion: v2
+    appVersion: 1.18.0
+    created: "2023-01-14T04:49:36.810639471Z"
+    description: A Helm chart for Mattermost Operator
+    digest: 3650090dab581ef50d8b195dbd7448150bbf187a0f3e5417ca6e4c59d65becfe
+    keywords:
+    - operator
+    - mattermost
+    maintainers:
+    - name: stylianosrigas
+    name: mattermost-operator
+    type: application
+    urls:
+    - https://github.com/mattermost/mattermost-helm/releases/download/mattermost-operator-0.3.3/mattermost-operator-0.3.3.tgz
+    version: 0.3.3
+  - apiVersion: v2
     appVersion: 1.16.0
     created: "2022-01-24T09:37:28.882221987Z"
     description: A Helm chart for Mattermost Operator
@@ -1928,6 +2013,37 @@ entries:
     - https://github.com/mattermost/mattermost-helm/releases/download/mattermost-operator-0.1.0/mattermost-operator-0.1.0.tgz
     version: 0.1.0
   mattermost-push-proxy:
+  - annotations:
+      artifacthub.io/images: |
+        - name: mattermost-push-proxy
+          image: mattermost/mattermost-push-proxy:5.22.5
+      artifacthub.io/license: Apache-2.0
+    apiVersion: v2
+    appVersion: 5.22.5
+    created: "2023-01-14T04:49:36.96980938Z"
+    description: Mattermost Push Proxy server
+    digest: d00336b69b5ee91878a7b4fb1effa654bec5d7800e2e6cc2a7465922ed78115f
+    home: https://mattermost.com
+    icon: http://www.mattermost.org/wp-content/uploads/2016/04/icon.png
+    keywords:
+    - mattermost
+    - communication
+    - notification
+    - messaging
+    - team colaboration
+    maintainers:
+    - email: stylianos.rigas@mattermost.com
+      name: stylianosrigas
+    - email: spiros.economakis@mattermost.com
+      name: spirosoik
+    name: mattermost-push-proxy
+    sources:
+    - https://github.com/mattermost/mattermost-helm
+    - https://github.com/mattermost/mattermost-push-proxy
+    type: application
+    urls:
+    - https://github.com/mattermost/mattermost-helm/releases/download/mattermost-push-proxy-0.7.0/mattermost-push-proxy-0.7.0.tgz
+    version: 0.7.0
   - annotations:
       artifacthub.io/images: |
         - name: mattermost-push-proxy
@@ -2194,7 +2310,51 @@ entries:
     urls:
     - https://github.com/mattermost/mattermost-helm/releases/download/mattermost-push-proxy-0.1.4/mattermost-push-proxy-0.1.4.tgz
     version: 0.1.4
+  mattermost-rtcd:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-01-14T04:49:37.136052798Z"
+    description: A Helm chart for Kubernetes to deploy Mattermost's RTCD
+    digest: adc4c31d2f72ad3a7f5955ef26bc48364ba471285892675bf2627ad6b6b981a8
+    keywords:
+    - mattermost
+    - calls
+    - rtcd
+    maintainers:
+    - email: sre@mattermost.com
+      name: SRE Team
+    name: mattermost-rtcd
+    sources:
+    - https://github.com/mattermost/mattermost-helm
+    type: application
+    urls:
+    - https://github.com/mattermost/mattermost-helm/releases/download/mattermost-rtcd-1.1.1/mattermost-rtcd-1.1.1.tgz
+    version: 1.1.1
   mattermost-team-edition:
+  - apiVersion: v2
+    appVersion: 7.5.2
+    created: "2023-01-14T04:49:37.333567657Z"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://charts.helm.sh/stable
+      version: 1.6.4
+    description: Mattermost Team Edition server.
+    digest: d70b835ff3c9318babd2b4cdd04ea55d2cf8a6b9b83fc15a09fd83c3e24377e2
+    home: https://mattermost.com
+    icon: http://www.mattermost.org/wp-content/uploads/2016/04/icon.png
+    keywords:
+    - mattermost
+    - communication
+    - team collaboration
+    name: mattermost-team-edition
+    sources:
+    - https://github.com/mattermost/mattermost-server
+    - https://github.com/mattermost/mattermost-helm
+    type: application
+    urls:
+    - https://github.com/mattermost/mattermost-helm/releases/download/mattermost-team-edition-6.6.16/mattermost-team-edition-6.6.16.tgz
+    version: 6.6.16
   - apiVersion: v2
     appVersion: 6.4.0
     created: "2022-02-17T12:45:11.40003291Z"
@@ -3411,4 +3571,4 @@ entries:
     urls:
     - https://github.com/mattermost/mattermost-helm/releases/download/mattermost-team-edition-3.2.0/mattermost-team-edition-3.2.0.tgz
     version: 3.2.0
-generated: "2022-02-22T09:29:37.873938415Z"
+generated: "2023-01-14T04:49:37.335203759Z"
